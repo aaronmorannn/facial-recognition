@@ -1,0 +1,8 @@
+Full Stack with Python: 
+- https://www.fullstackpython.com/table-of-contents.html
+- https://www.fullstackpython.com/django.html
+- https://www.fullstackpython.com/flask.html
+
+
+Facial Recognition with Python, OpenCV and face_recognition libraries:
+- https://www.pythonpool.com/face-detection-using-opencv-and-python/

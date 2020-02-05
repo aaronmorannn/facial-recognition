@@ -1,11 +1,10 @@
 # Reference https://docs.opencv.org/master/dd/d43/tutorial_py_video_display.html
-
 import numpy as numpy
-import cv2 as cv
+import cv2
 
-capture = cv.VideoCapture(0)
+capture = cv2.VideoCapture(0)
 
-
+cv2.namedWindow("Test")
 
 # Access camera and refresh
 if not capture.isOpened():
@@ -20,12 +19,12 @@ while True:
         print("Can't receive frame. Exiting ...")
         break
     # Code that deals with the frames goes here
-    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     #Display resulting frame
-    cv.imshow('frame', gray)
-    if cv.waitKey(1) == ord('q'):
+    cv2.imshow('Camera', gray)
+    if cv2.waitKey(1) == ord('q'):
         break
 
 # When everything done, release the capture
 capture.release()
-cv.destroyAllWindows()
+cv2.destroyAllWindows()
