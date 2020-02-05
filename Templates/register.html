@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-dark">
+    <span id="head" class="navbar-brand mb-0 h1">facial.recognition</span>
+</nav>
+
+<br>
+<div class="div1">
+  <h1 id="welcome">Register</h1>
+  <hr>
+</div>
+
+<br><br>
+<div class="div2">
+  <form action="/action_page.php">
+  	<h3>Please Set Your Name</h3>
+    <input type="text" id="fname" name="name" placeholder="Your name..">
+    <br><br>
+    <h3>Please Take a Photo</h3>
+    <button class="button">Open Camera</button>
+  </form>
+</div>
+{% endblock %}

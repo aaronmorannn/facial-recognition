@@ -1,15 +1,30 @@
 {% extends "layout.html" %}
 {% block content %}
 <!-- As a heading -->
-<!-- As a heading -->
-<nav class="navbar navbar-light bg-light">
-  <span class="navbar-brand mb-0 h1">facial.recognition</span>
+<nav class="navbar navbar-light bg-dark">
+    <span id="head" class="navbar-brand mb-0 h1">facial.recognition</span>
 </nav>
 
+<br>
+<div class="div1">
+  <h1 id="welcome">Welcome</h1>
+  <hr>
+</div>
+
+<br><br>
+<!-- Button Div for LOGIN / REGISTER -->
+<div class="div2">
+  <h3>Do you wish to</h3>
+  <br><br>
+  <button class="button"><a id="link" href="login.html">LOGIN</a></button>
+  <button class="button"><a id="link" href="register.html">REGISTER</a></button>
+  <br><br>
+</div>
+
 <hr>
-<!-- <div>
-	<td>
+<div class="contact">
+<td>
 	<a id="hicon" href="https://github.com/Moran98/facial-recognition" target="_blank"><i id="icon" class="fa fa-github" ></i></a>
-	</td>
-</div> -->
+</td>
+</div>
 {% endblock %}
