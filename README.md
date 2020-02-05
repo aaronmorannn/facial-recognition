@@ -4,7 +4,6 @@
 [Thomas Kenny](https://github.com/KennyThomas)
 
 ## Step 1: Test the App Locally
--------------------------------
 	
 1. Run your application locally:
 ```

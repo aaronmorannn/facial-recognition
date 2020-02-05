@@ -1,11 +1,18 @@
 import os
-
-from flask import Flask
+from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
+
+# Home Page
 @app.route('/')
-def hello_world():
-    return '<h1>Hello, World!</h1>'
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+# About Page
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 # Localhost setup - http://localhost:5000/
 if __name__ == "__main__":
