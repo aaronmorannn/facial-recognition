@@ -1,11 +1,11 @@
 import face_recognition
 from PIL import Image as img , ImageDraw 
 
-image_of_Obama = face_recognition.load_image_file('RegisterPhoto.jpg')
-Obama_face_encoding = face_recognition.face_encodings(image_of_Obama)[0]
+Reg_Photo = face_recognition.load_image_file('RegisterPhoto.jpg')
+Reg_Photo_encoding = face_recognition.face_encodings(Reg_Photo)[0]
 
 Known_face_encoding = [
-    Obama_face_encoding
+    Reg_Photo_encoding
 
 ]
 
@@ -13,12 +13,12 @@ known_face_names = [
 "Name of user"
 ]
 
-Test_image = face_recognition.load_image_file('LoginPhoto.jpg')
+Login_Photo = face_recognition.load_image_file('LoginPhoto.jpg')
 
-face_locations = face_recognition.face_locations(Test_image)
-face_encoding = face_recognition.face_encodings(Test_image,face_locations)
+face_locations = face_recognition.face_locations(Login_Photo)
+face_encoding = face_recognition.face_encodings(Login_Photo,face_locations)
 
-pil_image = img.fromarray(Test_image)
+pil_image = img.fromarray(Login_Photo)
 
 draw = ImageDraw.Draw(pil_image)
 
