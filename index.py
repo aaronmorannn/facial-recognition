@@ -1,6 +1,13 @@
 import os
 from flask import Flask, render_template, url_for
+from forms import RegistrationForm, LoginForm
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'f8f554e6ee2289a018a19ae92f1c6325'
+
+# import secrets
+# secrets.token_hex(16)
+# 'f8f554e6ee2289a018a19ae92f1c6325'
 
 
 # Home Page
@@ -9,20 +16,22 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-# About Page
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
 # Login Page
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    form = LoginForm()
+    return render_template('login.html', form=form)
 
 # Register Page
 @app.route('/register')
 def register():
-    return render_template('register.html')
+    form = RegistrationForm()
+    return render_template('register.html', form=form)
+
+
+@app.route('/test')
+def TEST():
+    return "Testing..."
 
 
 # Localhost setup - http://localhost:5000/

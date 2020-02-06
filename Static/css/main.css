@@ -66,10 +66,16 @@ h3{
 
 .div2{
     text-align: center;
-
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 #fname{
   align-items: center;
 }
 
+.form-control{
+
+}

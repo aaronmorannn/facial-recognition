@@ -1,8 +1,8 @@
-function goPython(){
-            $.ajax({
-              url: "Code-Snippets/camera.py",
+ function goPython(){
+       $.ajax({
+  		     url: "/Code-Snippets/camera.py",
              context: document.body
-            }).done(function() {
-             alert('Opened python script');;
+             }).done(function() {
+             alert('finished python script');;
             });
- }
+  }
