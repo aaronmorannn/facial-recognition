@@ -3,7 +3,7 @@ import cv2
 import face_recognition
 
 # Using facial recognition Library
-image = face_recognition.load_image_file("./TestImages/Test.jpg")
+image = face_recognition.load_image_file("./images/Test.jpg")
 face_locations = face_recognition.face_locations(image)
 print(face_locations)
 print(f'There are {len(face_locations)} people in this image')

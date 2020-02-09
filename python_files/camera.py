@@ -11,7 +11,7 @@ while True:
     
     #Save on pressing "Spacebar" then exit
     if(cv2.waitKey(1) & 0xFF == ord('q')):
-        cv2.imwrite("./TestImages/usr1.png", frame)
+        cv2.imwrite("./images/usr1.png", frame)
         cv2.destroyAllWindows()
         break
 
