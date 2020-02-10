@@ -13,7 +13,7 @@
 
 <br><br>
 <div class="div2">
-  <form method="POST" action="/action_page.php">
+  <form method="[POST. GET]">
     <!-- Protection -->
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
@@ -30,7 +30,7 @@
     <!-- PHOTO SCAN -->
     <br><br>
     <h3>Please Take a Photo</h3>
-    <button class="button">Open Camera</button>
+    <button class="button" onclick="goPython()">Open Camera</button>
   </form>
 </div>
 {% endblock %}

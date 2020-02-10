@@ -1,6 +1,6 @@
  function goPython(){
        $.ajax({
-  		     url: "/Code-Snippets/camera.py",
+  		     url: "../../python_files/camera.py",
              context: document.body
              }).done(function() {
              alert('finished python script');;
