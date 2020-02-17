@@ -2,9 +2,8 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for
 from forms import RegistrationForm, LoginForm
-app = Flask(__name__)
 
-# app.config['SECRET_KEY'] = 'f8f554e6ee2289a018a19ae92f1c6325'
+app = Flask(__name__)
 
 # configuring database
 #
@@ -21,11 +20,6 @@ class User(db.Model):
 
     def __repr__(self):
         return f"User('{self.username}', '{self.image}')"
-
-
-# import secrets
-# secrets.token_hex(16)
-# 'f8f554e6ee2289a018a19ae92f1c6325'
 
 
 # Home Page
