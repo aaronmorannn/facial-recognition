@@ -1,0 +1,16 @@
+THIS IS A LIST OF PIP INSTALLS FOR WHEN RUNNING THE APPLICATION LOCALLY
+-----------------------------------------------------------------------
+# Flask
+$ pip install Flask
+
+# Virtual Env
+$ pip install -e
+$ pip list  
+
+# Flask-SQLAlchemy
+$ pip install flask-sqlalchemy
+
+# Face Recognition
+$ pip install face_recognition
+
+
