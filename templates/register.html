@@ -23,19 +23,20 @@
             {{ form.username(class="form-control form-control-lg") }}
       </div>
     </fieldset>
-    <div class="form-group">
+<!--     <div class="form-group">
       {{form.submit(class="button")}}
-    </div>
+    </div> -->
 
     <!-- PHOTO SCAN -->
     <br><br>
 
     <h3>Please Take a Photo</h3>
-    <video id="video" width="640" height="480" autoplay></video>
     <button class="button" onclick="camera()">Open Camera</button>
-    <canvas id="canvas" width="640" height="480"></canvas>
+    <canvas id="canvas" width="0" height="80"></canvas>
+    <br><br><br>
+    <video id="video" width="450" height="300" autoplay></video>
   </form>
 
-  <script type="text/javascript" src="./script.js"></script>
+  <script type="text/javascript" src="../static/script/script.js"></script>
 </div>
 {% endblock %}
