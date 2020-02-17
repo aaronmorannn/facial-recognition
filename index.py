@@ -1,9 +1,27 @@
 import os
+from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for
 from forms import RegistrationForm, LoginForm
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'f8f554e6ee2289a018a19ae92f1c6325'
+# app.config['SECRET_KEY'] = 'f8f554e6ee2289a018a19ae92f1c6325'
+
+# configuring database
+#
+#
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    # MAX 20 chars
+    username = db.Column(db.String(20), unique=True, nullable=False)
+    # Add default image to code
+    image = db.Column(db.String(20), nullable=False, default='default.jpg')
+
+    def __repr__(self):
+        return f"User('{self.username}', '{self.image}')"
+
 
 # import secrets
 # secrets.token_hex(16)

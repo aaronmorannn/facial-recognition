@@ -30,3 +30,24 @@
 	$ pip list
 ```
 
+## Accessing SQL database from Command Prompt
+
+1. Access the Python terminal by typing the following :
+
+```
+	python 
+```
+
+2. Import the db to the main route file for the application as follows :
+
+```
+	from index import db
+```
+
+3. Display all the users and image file names by using the following command :
+
+```
+	User.query.all()
+```
+
+![](Research/Documentation/Images/db.png)
