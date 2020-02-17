@@ -1,12 +1,20 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for
+from flask_wtf.csrf import CSRFProtect, CSRFError
 from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
 
-# configuring database
-#
+# Setting up CSRF Protection which was interfering with the Server
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+csrf = CSRFProtect(app)
+# INTERNAL SERVER ISSUE
+
+# configuring database using SQLite
 #
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
