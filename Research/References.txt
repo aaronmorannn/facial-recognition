@@ -8,3 +8,6 @@ Full Stack with Python:
 
 Facial Recognition with Python, OpenCV and face_recognition libraries:
 - https://www.pythonpool.com/face-detection-using-opencv-and-python/
+
+Face_Recognition install on windows tutorial
+- https://github.com/ageitgey/face_recognition/issues/175
