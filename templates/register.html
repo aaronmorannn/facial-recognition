@@ -29,8 +29,13 @@
 
     <!-- PHOTO SCAN -->
     <br><br>
+
     <h3>Please Take a Photo</h3>
-    <button class="button" onclick="goPython()">Open Camera</button>
+    <video id="video" width="640" height="480" autoplay></video>
+    <button class="button" onclick="camera()">Open Camera</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
   </form>
+
+  <script type="text/javascript" src="./script.js"></script>
 </div>
 {% endblock %}
