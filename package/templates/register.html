@@ -24,17 +24,22 @@
       </div>
     </fieldset>
     <!-- PHOTO SCAN -->
-    <br><br>
+    <br>
     <h3>Please Take a Photo</h3>
-    <button type="button" class="button" onclick="camera()">Open Camera</button>
-    <canvas id="canvas" width="0" height="80"></canvas>
-    <br><br><br>
-    <video id="video" width="450" height="300" autoplay></video>
-    <br><br>
+    <div class="camera-div">
+      <video id="video" width="640" height="480" autoplay></video>
+      <canvas id="canvas" width="640" height="480"></canvas>
+    </div>
+
+    <div class="camera-btn-div">
+      <button type="Button" class="button" id="video" onclick="camera()">Open Camera</button>
+      <button type="Button" class="button" id="snap" onclick="takePhoto()">Take Photo</button>
+    </div>
+
+    <br>
     <!-- Take photo button acts as a submit, requires a username to be entered. -->
     {{form.submit(class="button btn-outline-info")}}
-<!--     <button type="submit" class="button">Take Photo</button>
- -->  </form>
+  </form>
 
   <script type="text/javascript" src="../static/script/script.js"></script>
 </div>

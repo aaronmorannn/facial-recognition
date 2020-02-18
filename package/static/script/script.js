@@ -7,7 +7,7 @@
  //            });
  //  }
 
- function camera(){
+function camera(){
 	// Grab elements, create settings, etc.
 	var video = document.getElementById('video');
 
@@ -20,7 +20,9 @@
 	        video.play();
 	    });
 	}
+}
 
+function takePhoto(){
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 	var video = document.getElementById('video');
