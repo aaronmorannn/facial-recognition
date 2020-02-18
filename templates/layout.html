@@ -10,6 +10,18 @@
 
 </head>
 <body background="white">
+	<!-- Open code block for flashed messages -->
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages %}
+			{% for catergory, message in messages %}
+			<!-- Passing alert message -->
+			<div class="alert alert-{{catergory}}">
+				{{message}}
+			</div>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<!-- end block -->
 	{% block content %}
 	{% endblock %}
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

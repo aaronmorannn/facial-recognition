@@ -13,7 +13,7 @@
 
 <br><br>
 <div class="div2">
-  <form method="[POST. GET]">
+  <form method="POST" action="">
     <!-- Protection -->
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
@@ -23,21 +23,18 @@
             {{ form.username(class="form-control form-control-lg") }}
       </div>
     </fieldset>
-<!--     <div class="form-group">
-      {{form.submit(class="button")}}
-    </div> -->
-
     <!-- PHOTO SCAN -->
     <br><br>
-
     <h3>Please Take a Photo</h3>
     <button type="button" class="button" onclick="camera()">Open Camera</button>
     <canvas id="canvas" width="0" height="80"></canvas>
     <br><br><br>
     <video id="video" width="450" height="300" autoplay></video>
     <br><br>
-    <button type="button" class="button">Take Photo</button>
-  </form>
+    <!-- Take photo button acts as a submit, requires a username to be entered. -->
+    {{form.submit(class="button btn-outline-info")}}
+<!--     <button type="submit" class="button">Take Photo</button>
+ -->  </form>
 
   <script type="text/javascript" src="../static/script/script.js"></script>
 </div>

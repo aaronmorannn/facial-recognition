@@ -1,6 +1,6 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash, redirect
 from flask_wtf.csrf import CSRFProtect, CSRFError
 from forms import RegistrationForm, LoginForm
 
@@ -40,13 +40,20 @@ def home():
 @app.route('/login')
 def login():
     form = LoginForm()
-    return render_template('login.html', form=form)
+    return render_template('login.html', title='Login', form=form)
 
 # Register Page
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
-    return render_template('register.html', form=form)
+    if form.validate_on_submit():
+        # user = User(username=form.username.data)
+        # db.session.add(User)
+        # db.session.commit()
+        flash(f'Your account has been created!', 'Success')
+        return redirect(url_for('home'))
+    return render_template('register.html', title='Register', form=form)
+
 
 
 @app.route('/test')
