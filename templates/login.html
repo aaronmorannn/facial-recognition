@@ -16,20 +16,9 @@
   <form method="[POST. GET]">
     <!-- Protection -->
     {{ form.hidden_tag() }}
-    <fieldset class="form-group">
-      <!-- Name Setting -->
-      <div class="form-group">
-        <h3>Please Enter Your Name</h3>
-            {{ form.username(class="form-control form-control-lg") }}
-      </div>
-    </fieldset>
-<!--     <div class="form-group">
-      {{form.submit(class="button")}}
-    </div> -->
-
     <!-- PHOTO SCAN -->
     <br><br>
-    <h3>Please Take a Photo</h3>
+    <h3>Scan Face to Login</h3>
     <button type="button" class="button" onclick="camera()">Open Camera</button>
     <canvas id="canvas" width="0" height="80"></canvas>
     <br><br><br>
@@ -37,7 +26,6 @@
     <br><br>
     <button type="submit" class="button">Take Photo</button>
   </form>
-
     <script type="text/javascript" src="../static/script/script.js"></script>
 </div>
 {% endblock %}
