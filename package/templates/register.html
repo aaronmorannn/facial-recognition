@@ -27,8 +27,8 @@
     <br>
     <h3>Please Take a Photo</h3>
     <div class="camera-div">
-      <video id="video" width="640" height="480" autoplay></video>
-      <canvas id="canvas" width="640" height="480"></canvas>
+      <video id="video" width="250" height="250" autoplay></video>
+      <canvas id="canvas" width="350" height="250"></canvas>
     </div>
 
     <div class="camera-btn-div">
@@ -38,8 +38,9 @@
 
     <br>
     <!-- Take photo button acts as a submit, requires a username to be entered. -->
-    {{form.submit(class="button btn-outline-info")}}
-  </form>
+    <!-- BUTTON NEEDS TO BE ATTACHED TO FORM FOR SUBMITING TO DATABASE -->
+<!--     {{form.submit(class="button btn-outline-info")}}
+ -->  </form>
 
   <script type="text/javascript" src="../static/script/script.js"></script>
 </div>

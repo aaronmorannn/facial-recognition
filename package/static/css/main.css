@@ -76,17 +76,16 @@ h3{
   align-items: center;
 }
 
-.form-control{
-
-}
-
 .camera-div{
-  border: 0.2em solid black;
+  border: 2px solid #cfcfcf;
+  border-radius: 12px;
+  background-color: white;
 }
 
 #video{
   margin: 0.3em 0em 0em 0em;
 }
+
 
 #snap{
   margin: 0.3em 0em 0em 0em;
