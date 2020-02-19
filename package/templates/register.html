@@ -32,15 +32,13 @@
     </div>
 
     <div class="camera-btn-div">
-      <button type="Button" class="button" id="video" onclick="camera()">Open Camera</button>
-      <button type="Button" class="button" id="snap" onclick="takePhoto()">Take Photo</button>
+      <button type="Button" class="button" id="snap" onclick="camera()">Open Camera</button>
+      <!-- Take photo button acts as a submit, requires a username to be entered. -->
+      <!-- BUTTON NEEDS TO BE ATTACHED TO FORM FOR SUBMITING TO DATABASE -->
+      {{form.submit(class="button btn-outline-info" ,id="video", type="submit")}}
     </div>
-
     <br>
-    <!-- Take photo button acts as a submit, requires a username to be entered. -->
-    <!-- BUTTON NEEDS TO BE ATTACHED TO FORM FOR SUBMITING TO DATABASE -->
-<!--     {{form.submit(class="button btn-outline-info")}}
- -->  </form>
+  </form>
 
   <script type="text/javascript" src="../static/script/script.js"></script>
 </div>
