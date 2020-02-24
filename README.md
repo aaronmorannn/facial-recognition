@@ -3,6 +3,9 @@
 [Arnas Steponavicius](https://github.com/ArnasSteponavicius00) &nbsp;
 [Thomas Kenny](https://github.com/KennyThomas)
 
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Moran98/facial-recognition) 
+
+
 ## Step 1: Test the App Locally
 	
 1. Run your application locally:
