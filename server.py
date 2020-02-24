@@ -19,3 +19,9 @@ def dated_url_for(endpoint, **values):
                                  endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
+
+
+
+@app.route('/Camera')
+def Camera():
+    from python_files import faceLogin
