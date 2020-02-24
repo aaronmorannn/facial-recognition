@@ -17,18 +17,6 @@ a:active {
   color: white; 
 }
 
-.btn{
-  background-color: black;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  border-radius: 50%;
-}
-
-.dropdown{
-  color: white;
-}
-
 #icon{
   font-size: 45px;
 }
@@ -77,28 +65,17 @@ h3{
 }
 
 .div2{
-  text-align: center;
-  align-items: center;
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
+    text-align: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 #fname{
   align-items: center;
 }
 
-.camera-div{
-  border: 2px solid #cfcfcf;
-  border-radius: 12px;
-  background-color: white;
-}
+.form-control{
 
-#video{
-  margin: 0.3em 0em 0em 0em;
-}
-
-
-#snap{
-  margin: 0.3em 0em 0em 0em;
 }

@@ -8,6 +8,7 @@ from flask_login import login_user
 @app.route('/')
 @app.route('/home')
 def home():
+    # online_users = mongo.db.users.find({"online": True})
     return render_template('home.html')
 
 # Login Page
