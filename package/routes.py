@@ -39,7 +39,9 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-
+@app.route('/Camera')
+def Camera():
+    from python_files import faceLogin
 
 @app.route('/test')
 def TEST():
