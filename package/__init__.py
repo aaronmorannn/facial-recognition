@@ -3,8 +3,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect, CSRFError
 from flask_login import LoginManager
-from flask_pymongo import PyMongo
-from flask_uploads import UploadSet, IMAGES, configure_uploads
+# from flask_pymongo import PyMongo
+# from flask_uploads import UploadSet, IMAGES, configure_uploads
 
 app = Flask(__name__)
 

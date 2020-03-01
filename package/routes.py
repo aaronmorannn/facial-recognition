@@ -12,7 +12,7 @@ def home():
     return render_template('home.html')
 
 # Login Page
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     # Login Model used to validate username exists in the Database
@@ -21,10 +21,10 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
             login_user(user)
-            flash(f'Login Succesful.!', 'success')
-            return redirect(url_for('home'))
+            flash(f'Login Successful!', 'success')
+            return redirect(url_for('loggedIn'))
         else:
-             flash(f'Login Unsuccesful.!', 'danger')
+             flash(f'Login Unsuccesful. Please make sure you have entered the correct details.', 'danger')
     return render_template('login.html', title='Login', form=form)
 
 # Register Page
@@ -32,7 +32,7 @@ def login():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data)
+        user = User(username=form.username.data, image=form.image.data)
         db.session.add(user)
         db.session.commit()
         flash(f'Your account has been created!', 'success')
@@ -43,6 +43,7 @@ def register():
 def Camera():
     from python_files import faceLogin
 
-@app.route('/test')
-def TEST():
-    return "Testing..."
+@app.route('/loggedIn')
+def loggedIn():
+    # user = User.query.filter_by(username=username.data).first()
+    return render_template('loggedIn.html')

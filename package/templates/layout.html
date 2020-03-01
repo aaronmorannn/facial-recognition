@@ -16,7 +16,7 @@
 		{% if messages %}
 			{% for catergory, message in messages %}
 			<!-- Passing alert message -->
-			<div class="alert alert-{{catergory}}">
+			<div id="alert" class="alert alert-{{catergory}}">
 				{{message}}
 			</div>
 			{% endfor %}

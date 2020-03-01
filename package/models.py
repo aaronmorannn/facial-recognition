@@ -8,11 +8,12 @@ def load_user(user_id):
 
 
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     # MAX 20 chars
     username = db.Column(db.String(20), unique=True, nullable=False)
     # Add default image to code
     image = db.Column(db.String(20), nullable=False, default='scan.jpg')
+    # image = db.Column(db.LargeBinary(length=2 ** 24), nullable=False)
 
     def __repr__(self):
         return f"User('{self.username}', '{self.image}')"

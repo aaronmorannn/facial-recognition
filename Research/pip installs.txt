@@ -9,8 +9,7 @@ $ pip list
 
 # Flask-SQLAlchemy
 $ pip install flask-sqlalchemy
+$ pip install Flask-MongoAlchemy
 
 # Face Recognition
 $ pip install face_recognition
-
-
