@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect
-from package import app, db 
+from package import app,db 
 from package.forms import RegistrationForm, LoginForm
 from package.models import User
 from flask_login import login_user
@@ -45,5 +45,7 @@ def Camera():
 
 @app.route('/loggedIn')
 def loggedIn():
-    # user = User.query.filter_by(username=username.data).first()
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
     return render_template('loggedIn.html')

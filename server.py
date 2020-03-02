@@ -1,5 +1,6 @@
 import os
 from package import app
+from flask import Flask, url_for
 
 # Localhost setup - http://localhost:5000/
 if __name__ == "__main__":
@@ -18,7 +19,7 @@ def dated_url_for(endpoint, **values):
             file_path = os.path.join(app.root_path,
                                  endpoint, filename)
             values['q'] = int(os.stat(file_path).st_mtime)
-    return url_for(endpoint, **values)
+    return {{url_for(endpoint, **values)}}
 
 
 

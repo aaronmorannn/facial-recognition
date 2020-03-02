@@ -8,10 +8,6 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 
-# PyMongo Initialisation
-# app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
-# mongo = PyMongo(app)
-
 # Setting up CSRF Protection which was interfering with the Server
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
