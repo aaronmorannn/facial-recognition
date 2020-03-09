@@ -3,6 +3,8 @@ from package import app,db
 from package.forms import RegistrationForm, LoginForm
 from package.models import User
 from flask_login import login_user
+import pymongo
+from pymongo import MongoClient
 
 # Home Page
 @app.route('/')
@@ -38,6 +40,21 @@ def register():
         flash(f'Your account has been created!', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+# Mongo Initialisation
+cluster = MongoClient("mongodb+srv://admin:admin@cluster1-p71lz.mongodb.net/test?retryWrites=true&w=majority")
+db = cluster["Cluster1"]
+coll = db["users"]
+
+@app.route('/Add')
+def add_user():
+    user_collection = cluster.db.coll
+    user_collection.insert({'name' : 'Aaron'})
+    user_collection.insert({'name' : 'Arnas'})
+    user_collection.insert({'name' : 'Thomas'})
+
+    return '<h1> Added a User!</h1>'
 
 @app.route('/Camera')
 def Camera():
