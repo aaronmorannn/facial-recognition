@@ -6,6 +6,11 @@ from flask_login import login_user
 import pymongo
 from pymongo import MongoClient
 
+# Mongo Initialisation
+cluster = MongoClient("mongodb+srv://admin:admin@cluster1-p71lz.mongodb.net/test?retryWrites=true&w=majority")
+db = cluster["Cluster1"]
+collection = db["users"]
+
 # Home Page
 @app.route('/')
 @app.route('/home')
@@ -34,26 +39,22 @@ def login():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, image=form.image.data)
-        db.session.add(user)
-        db.session.commit()
+        # user = User(username=form.username.data, image=form.image.data)
+        user_collection = cluster.db.collection
+        user = {"username" : form.username.data, "image" : form.image.data}
+        collection.insert_one(user)
+        # db.session.add(user)
+        # db.session.commit()
         flash(f'Your account has been created!', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-
-# Mongo Initialisation
-cluster = MongoClient("mongodb+srv://admin:admin@cluster1-p71lz.mongodb.net/test?retryWrites=true&w=majority")
-db = cluster["Cluster1"]
-coll = db["users"]
-
-@app.route('/Add')
+@app.route('/TestAdd')
 def add_user():
-    user_collection = cluster.db.coll
+    user_collection = cluster.db.collection
     user_collection.insert({'name' : 'Aaron'})
     user_collection.insert({'name' : 'Arnas'})
     user_collection.insert({'name' : 'Thomas'})
-
     return '<h1> Added a User!</h1>'
 
 @app.route('/Camera')
