@@ -15,3 +15,6 @@ Face_Recognition install on windows tutorial
 Connecting MongoDB with Flask-PyMongo
 - https://www.youtube.com/watch?v=3ZS7LEH_XBg
 - https://github.com/PrettyPrinted/youtube_video_code/tree/master/2019/05/29/Connecting%20to%20a%20MongoDB%20in%20Flask%20Using%20Flask-PyMongo%20(2019)
+
+Django File Uploading:
+- https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/
