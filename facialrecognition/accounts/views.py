@@ -18,13 +18,7 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
-            user = form.cleaned_data.get("user") 
-            image = form.cleaned_data.get("image") 
-            obj = UserProfile.objects.create(
-                user =user,
-                image=image   
-            )
-            obj.save()
+            form.save()
             return redirect('/account/')
     else:
         form = RegistrationForm() 

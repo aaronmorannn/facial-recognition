@@ -32,7 +32,7 @@
         </div>
 
         <div class="div2">
-            <form method="post">
+            <form method="post"  enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button class="button" type="submit">REGISTER</button>

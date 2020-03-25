@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
+from django.conf import settings
+from django.conf.urls.static import static 
 
 urlpatterns = [
     url(r'^$', views.home),
@@ -10,3 +12,7 @@ urlpatterns = [
     url(r'^loggedin/$', LoginView.as_view(template_name='accounts/loggedIn.html'), name="loggedin"),
 
 ]
+
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)
