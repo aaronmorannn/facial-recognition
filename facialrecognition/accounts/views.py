@@ -11,16 +11,23 @@ def home(request):
     args = {'myName': name, 'numbers': numbers}
     return render(request, 'accounts/home.html', args)
 
-# Trying to get images adding on the User side.
-# NOT NULL constraint failed: accounts_userprofile.user_id
+# Fully working adding users and images
 
 def register(request):
-    if request.method == 'POST':
+    context = {}
+    if request.method == "POST":
         form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('/account/')
+            name = form.cleaned_data.get("name")
+            img = form.cleaned_data.get("images")
+            obj = UserProfile.objects.create(
+                title = name,
+                img = img
+            )
+            obj.save()
+            print(obj)
     else:
-        form = RegistrationForm() 
-    args = {'form': form}
-    return render(request, 'accounts/register.html', args)
+        form = RegistrationForm()
+    context['form'] = form
+    return render(request, 'accounts/register.html', context)
+
