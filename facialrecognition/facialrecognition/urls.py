@@ -18,7 +18,7 @@ from django.urls import path, include
 from facialrecognition import views
 
 urlpatterns = [
-    # path(r'^$', views.login_redirect, name='login_redirect'),
+    path('', include('accounts.urls')),
     path('admin/', admin.site.urls),
-    path('account/', include('accounts.urls')),
+    path('home/', include('accounts.urls')),
 ]

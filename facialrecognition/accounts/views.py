@@ -26,6 +26,7 @@ def register(request):
             )
             obj.save()
             print(obj)
+            return redirect('/login')
     else:
         form = RegistrationForm()
     context['form'] = form
