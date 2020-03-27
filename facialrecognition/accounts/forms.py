@@ -6,4 +6,4 @@ from django import  forms
 
 class RegistrationForm(forms.Form):
     name = forms.CharField()
-    images = forms.ImageField(required=False)
+    images = forms.ImageField(required=True)

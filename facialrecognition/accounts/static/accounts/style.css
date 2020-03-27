@@ -106,6 +106,25 @@ h3{
   padding: 20px;
 }
 
+.loggedin{
+  text-align: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #cfcfcf;
+  border-radius: 12px;
+  background-color: white;
+}
+
+.div3{
+  text-align: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 #fname{
   align-items: center;
 }
@@ -127,4 +146,8 @@ h3{
 
 #alert{
   margin-bottom: 0px;
+}
+
+.error{
+  color: red;
 }

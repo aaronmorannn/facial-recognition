@@ -33,9 +33,17 @@
         </div>
 
         <div class="div2">
-            <form method="post">
+            {% if form.errors %}
+                <p class="error label-danger">
+                    Your username does not match. 
+                    Please try again.
+                </p>
+            {% endif %}
+            <form method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <p>{{ form.as_p }}</p>
+     
+                <br>
                 <button class="button" type="submit">Login</button>
             </form>
         </div>

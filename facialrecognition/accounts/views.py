@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from accounts.forms import RegistrationForm
 from .models import UserProfile
 
@@ -31,4 +31,3 @@ def register(request):
         form = RegistrationForm()
     context['form'] = form
     return render(request, 'accounts/register.html', context)
-

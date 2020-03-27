@@ -21,7 +21,16 @@
               <h1 id="welcome">Logged In {{ current_user.username }}</h1>
               <hr>
             </div>
-            
+
+            <div class="loggedin">
+                {% if user.is_authenticated %}
+                <h1>Your username is : {{ user.username }}</h1>
+                <h3>Your Password is : {{ user.password }}</h1>
+                {% endif %}
+            </div>
+            <div class="div3">
+                <button class="button" type="submit"><a id="link" href="/logout">Log Out</a></button>
+            </div>
             <br><br>
             </div>
             {%endblock%}
