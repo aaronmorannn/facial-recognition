@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^logout/$', LoginView.as_view(template_name='accounts/logout.html'), name="logout"),
     url(r'^register/$', views.register, name="register"),
     url(r'^loggedin/$', LoginView.as_view(template_name='accounts/loggedIn.html'), name="loggedin"),
+	url(r'^photo$', views.takePhoto, name="script"),
 
 ]
 

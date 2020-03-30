@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.http import StreamingHttpResponse
 from accounts.forms import RegistrationForm
 from .models import UserProfile
+import requests
+import cv2
+import numpy as np
 
 # Create your views here.
 def home(request):
@@ -29,5 +33,27 @@ def register(request):
             return redirect('/login')
     else:
         form = RegistrationForm()
+    context['form'] = form
+    return render(request, 'accounts/register.html', context)
+
+def takePhoto(request):
+    context = {}
+    capture = cv2.VideoCapture(0)
+
+    while True:
+        # Show camera window
+        ret, frame = capture.read()
+        cv2.imshow("Take profile picture", frame)
+
+        # Save on pressing "Spacebar" then exit
+        if(cv2.waitKey(1) & 0xFF == ord('q')):
+            cv2.imwrite("./facialrecognition/media/images/RegisterPhoto.png", frame)
+            cv2.destroyAllWindows()
+            break
+
+    # When everything done, release the capture
+    capture.release()
+
+    form = RegistrationForm()
     context['form'] = form
     return render(request, 'accounts/register.html', context)
