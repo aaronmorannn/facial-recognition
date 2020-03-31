@@ -18,6 +18,7 @@ def home(request):
 # Fully working adding users and images
 
 def register(request):
+    global imageName
     context = {}
     if request.method == "POST":
         form = RegistrationForm(request.POST, request.FILES)
@@ -29,8 +30,9 @@ def register(request):
                 img = img
             )
             obj.save()
+            imageName ="./facialrecognition/media/images/"+name+".png"
             print(obj)
-            return redirect('/login')
+          
     else:
         form = RegistrationForm()
     context['form'] = form
@@ -47,7 +49,7 @@ def takePhoto(request):
 
         # Save on pressing "Spacebar" then exit
         if(cv2.waitKey(1) & 0xFF == ord('q')):
-            cv2.imwrite("./facialrecognition/media/images/RegisterPhoto.png", frame)
+            cv2.imwrite(imageName,  frame)
             cv2.destroyAllWindows()
             break
 
@@ -56,4 +58,4 @@ def takePhoto(request):
 
     form = RegistrationForm()
     context['form'] = form
-    return render(request, 'accounts/register.html', context)
+    return redirect('/login')
