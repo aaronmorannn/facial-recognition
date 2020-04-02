@@ -28,7 +28,7 @@ Known_face_encoding = [
 ]
 
 known_face_names = [
-    "Cameron"
+  
 ]
 
 capture = cv2.VideoCapture(0)
@@ -72,7 +72,7 @@ if True in matches:
               name, fill=(255, 255, 255, 255))
     del draw
 
-    print("Thank you for logging in " + name)
+    print("Thank you for registering" + name)
 
     pil_image.show()
 
