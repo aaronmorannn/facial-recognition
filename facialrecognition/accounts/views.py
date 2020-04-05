@@ -28,7 +28,6 @@ def register(request):
     global imageName
     global name
     global known_face_name
-    global keyword
     context = {}
     if request.method == "POST":
         form = RegistrationForm(request.POST, request.FILES)
@@ -40,9 +39,8 @@ def register(request):
                 img=img
             )
             obj.save()
-            imageName = "./facialrecognition/media/images/"+name+"UserProfilePicture.png"
-            known_face_names = name
-            keyword = name
+            imageName = "./facialrecognition/media/images/"+name+"UserProfilePicture.png"  #creates the image name to save in the images folder
+            known_face_names = name  
             print(obj)
           
 
@@ -54,7 +52,7 @@ def register(request):
 
 def takePhoto(request):
     context = {}
-    for filename in os.listdir("./facialrecognition/media/images/"):
+    for filename in os.listdir("./facialrecognition/media/images/"):  #Searches for image starting with the username
         if fnmatch.fnmatch(filename, '*'+name+'.png'):
             print (filename)
             Reg_Photo = face_recognition.load_image_file("./facialrecognition/media/images/"+filename)
@@ -63,14 +61,7 @@ def takePhoto(request):
 
     Known_face_encoding = [
         Reg_Photo_encoding
-
     ]
-
- 
-     
-    
-   
-
     capture = cv2.VideoCapture(0)
 
     while True:
@@ -89,8 +80,6 @@ def takePhoto(request):
     pil_image = img.fromarray(VerificationPhoto)
 
     draw = ImageDraw.Draw(pil_image)
-
-
 
     for(top, right, bottom, left), face_encoding in zip(face_locations, face_encoding):
         matches = face_recognition.compare_faces(
@@ -112,10 +101,10 @@ def takePhoto(request):
        pil_image.show()
        form = RegistrationForm()
        context['form'] = form
-       return redirect('/login')
+       return redirect('/login')   #If the images are verified the user will be brought to the login page
     
     else:
         form = RegistrationForm()
-        print("The picture you uploaded was not clear enough or was not you")
+        print("The picture you uploaded was not clear enough or was not you")  #If the pictures do not match the user wil be brought back to the register page
         context['form'] = form
         return redirect('/register')
