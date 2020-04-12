@@ -60,7 +60,6 @@ def verifyPhoto(request):
     #         print('\t%s' % fname)
 
     '''Loop over images in directory, add to lists
-    TODO: use the encoded images to verify user
     '''
     print("Loading registered faces database!")
     for file in os.listdir(IMAGES_DIR):
@@ -68,12 +67,19 @@ def verifyPhoto(request):
             image = face_recognition.load_image_file(f"{IMAGES_DIR}/{file}")
             # encodes all found faces
             encoding = face_recognition.face_encodings(image)[0]
+            # add encodings to list 
             user_photo.append(encoding)
+            # add photo name to list
             user_photo_name.append(file)
 
+            # DEBUG print
             print(user_photo)
             print(user_photo_name)
 
+    '''Decides where user is redirected based on return of takePhoto()
+    if true - redirect to login
+    if false - redirect to register
+    '''
     if takePhoto() is True:
         form = RegistrationForm()
         context['form'] = form
@@ -88,7 +94,7 @@ def takePhoto():
     context = {}
     # Get user to take image
     capture = cv2.VideoCapture(0)
-
+    # Create live feed to take image and save photo
     while True:
         ret, frame = capture.read()
         cv2.imshow("Take Verification picture", frame)
@@ -97,21 +103,25 @@ def takePhoto():
             cv2.destroyAllWindows()
             break
 
+    # load the image
     ver_photo = face_recognition.load_image_file(f"{VERIF_DIR}/photo.png")
+    # encode the image
     ver_photo_enc = face_recognition.face_encodings(ver_photo)[0]
 
+    # DEBUG print
     print(f"VERIFICATION PHOTO: {ver_photo}")
     print(f"VERIFICATION PHOTO ENC: {ver_photo_enc}")
 
+    # get locations of loaded verification photo used for comparison
     ver_locs = face_recognition.face_locations(ver_photo)
+    # find faces and encodings 
     ver_photo_enc = face_recognition.face_encodings(ver_photo, ver_locs)
 
-    pil_image = img.fromarray(ver_photo)
-    draw = ImageDraw.Draw(pil_image)
-
+    # check if the verification photo matches a user photo
     for(top, right, bottom, left), ver_photo_enc in zip(ver_locs, ver_photo_enc):
         matches = face_recognition.compare_faces(user_photo, ver_photo_enc)
 
+    # return results
     if True in matches:
         print("Thank you for registering")
         return True
