@@ -11,8 +11,14 @@ from PIL import Image as img, ImageDraw
 import fnmatch
 import os
 
-# Create your views here.
+# Used for finding dir paths
+#rootDir = '../facialrecognition'
 
+IMAGES_DIR = 'facialrecognition/media/images'
+VERIF_DIR = 'facialrecognition/media/verif'
+
+user_photo = []
+user_photo_name = []
 
 def home(request):
     numbers = [1, 2, 3, 4, 5]
@@ -25,9 +31,6 @@ def home(request):
 
 
 def register(request):
-    global imageName
-    global name
-    global known_face_name
     context = {}
     if request.method == "POST":
         form = RegistrationForm(request.POST, request.FILES)
@@ -39,16 +42,82 @@ def register(request):
                 img=img
             )
             obj.save()
-            imageName = "./facialrecognition/media/images/"+name+"UserProfilePicture.png"  #creates the image name to save in the images folder
-            known_face_names = name  
             print(obj)
-          
 
+            return render(request, 'accounts/verify.html', context)
+          
     else:
         form = RegistrationForm()
     context['form'] = form
     return render(request, 'accounts/register.html', context)
 
+def verifyPhoto(request):
+    context = {}
+
+    #DEBUG CODE TO FIND DIRECTORY TREES
+    # for dirName, subdirList, fileList in os.walk(rootDir):
+    #     print('Found directory: %s' % dirName)
+    #     for fname in fileList:
+    #         print('\t%s' % fname)
+
+    '''Loop over images in directory, add to lists
+    TODO: use the encoded images to verify user
+    '''
+    print("Loading registered faces database!")
+    for file in os.listdir(IMAGES_DIR):
+        if file.endswith(('.jpeg', '.png')):
+            image = face_recognition.load_image_file(f"{IMAGES_DIR}/{file}")
+            # encodes all found faces
+            encoding = face_recognition.face_encodings(image)[0]
+            user_photo.append(encoding)
+            user_photo_name.append(file)
+
+            print(user_photo)
+            print(user_photo_name)
+
+
+    takePhoto()
+
+    form = RegistrationForm()
+    context['form'] = form
+    return redirect('/register')
+
+
+def takePhoto():
+        # Get user to take image
+        capture = cv2.VideoCapture(0)
+
+        while True:
+            ret, frame = capture.read()
+            cv2.imshow("Take Verification picture", frame)
+            if(cv2.waitKey(1) & 0xFF == ord('q')):
+                cv2.imwrite(f"{VERIF_DIR}/photo.png", frame)
+                cv2.destroyAllWindows()
+                break
+
+        ver_photo = face_recognition.load_image_file(f"{VERIF_DIR}/photo.png")
+        ver_photo_enc = face_recognition.face_encodings(ver_photo)[0]
+
+        print(f"VERIFICATION PHOTO: {ver_photo}")
+        print(f"VERIFICATION PHOTO ENC: {ver_photo_enc}")
+
+        ver_locs = face_recognition.face_locations(ver_photo)
+        ver_photo_enc = face_recognition.face_encodings(ver_photo, ver_locs)
+
+        pil_image = img.fromarray(ver_photo)
+        draw = ImageDraw.Draw(pil_image)
+
+        for(top, right, bottom, left), ver_photo_enc in zip(ver_locs, ver_photo_enc):
+            matches = face_recognition.compare_faces(user_photo, ver_photo_enc)
+
+        if True in matches:
+           print("Thank you for registering ")
+        else:
+            print("FAILED")
+
+
+''' Keep for now to reuse code for recognising and verifying 
+that user is the same as the one in the submitted image
 
 def takePhoto(request):
     context = {}
@@ -108,3 +177,4 @@ def takePhoto(request):
         print("The picture you uploaded was not clear enough or was not you")  #If the pictures do not match the user wil be brought back to the register page
         context['form'] = form
         return redirect('/register')
+'''

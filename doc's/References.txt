@@ -18,3 +18,8 @@ Connecting MongoDB with Flask-PyMongo
 
 Django File Uploading:
 - https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/
+
+https://medium.com/@muehler.v/node-js-opencv-for-face-recognition-37fa7cb860e8
+
+Directory Traversal in Python
+- https://www.pythoncentral.io/how-to-traverse-a-directory-tree-in-python-guide-to-os-walk/
