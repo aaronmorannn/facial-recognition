@@ -18,14 +18,13 @@
             
             <br>
             <div class="div1">
-              <h1 id="welcome">Logged In {{ current_user.username }}</h1>
+              <h1 id="welcome">Logged In {{ userLoginName }}</h1>
               <hr>
             </div>
 
             <div class="loggedin">
                 {% if user.is_authenticated %}
-                <h1>Your username is : {{ user.username }}</h1>
-                <h3>Your Password is : {{ user.password }}</h1>
+                <h1>Welcome {{ userLoginName }}</h1>
                 {% endif %}
             </div>
             <div class="div3">

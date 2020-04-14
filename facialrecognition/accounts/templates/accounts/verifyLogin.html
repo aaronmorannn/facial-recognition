@@ -6,7 +6,7 @@
         {% block head %}
         {% load static %}
         <link rel="stylesheet" href="{% static 'accounts/style.css' %}" type="text/css">
-        <title>Login</title>
+        <title>Register</title>
         {% endblock %}
     </head>
         <body>
@@ -27,17 +27,12 @@
             </nav>
             <br>
         <div class="div1">
-            <h1 id="welcome">LOGIN</h1>
-            <!-- Create super user allows us to create Admin accounts -->
+            <h1 id="welcome"> Login PHOTO VERIFICATION</h1>
             <hr>
         </div>
 
         <div class="div2">
-            <form method="post"  enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="button" type="submit">LOGIN</button>
-            </form>
+            <button class="button" onclick="location.href='{% url 'scriptLogin'%}'">VERIFY PHOTO</button>
         </div>
             {%endblock%}
         </body>
