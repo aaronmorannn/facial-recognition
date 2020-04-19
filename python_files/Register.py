@@ -13,7 +13,7 @@ while True:
 
     #Save on pressing "Spacebar" then exit
     if(cv2.waitKey(1) & 0xFF == ord('q')): #picture is taken by pressing q
-        cv2.imwrite("images/photo.png", frame)
+        cv2.imwrite("photo.png", frame)
         cv2.destroyAllWindows()
         break
 
