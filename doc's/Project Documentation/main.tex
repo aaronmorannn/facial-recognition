@@ -8,7 +8,7 @@
 \title{Facial Recognition Project}
 \begin{figure}
     \centering
-    \includegraphics[scale = 0.5]{gmit}
+    \includegraphics[scale = 0.25]{gmit}
     \label{fig:gmit}
 \end{figure}
 \author{Arnas Steponavicius
@@ -49,7 +49,6 @@ GitHub was vital with our project. It was important that we constantly used GitH
 
 \maketitle
 
-\newpage
 \section{Architecture of the solution }
 We designed this project to be user friendly and simplistic. From the following images you can see the UI is simple which makes for a better user experience.
 \includegraphics[scale = 0.1]{document/diagram1.jpg}
@@ -58,28 +57,37 @@ The UI design is located on one CSS file. This makes for updating style simple a
 The python and html files are formatted for ease of navigation. The order of the files are simple and understandable. This makes for an easier approach to edit specific files.
 
 \begin{flushleft}
-\newpage
 \section{Design Methodology}
 After trial and error this is the design we settled on. As you can see the design if very simple and clear. We thought about adding more to the pages like a template website but decided on "a less is more" approach to the design.
 
-\textbf{\underline{Home Screen}}
+\begin{flushleft}
+\textbf{\underline{Home Screen:}}
+\end{flushleft}
+
+\includegraphics[scale = 0.25]{document/WelcomeScreen.PNG}
+
+\begin{flushleft}
+\textbf{\underline{Login Screen:}}
+\end{flushleft}
+
+\includegraphics[scale = 0.25]{document/Login.PNG}
 \newline
-\includegraphics[scale = 0.27]{document/WelcomeScreen.PNG}
-\newline\newpage
-\textbf{\underline{Login Screen}}
-\newline
-\includegraphics[scale = 0.27]{document/Login.PNG}
-\newline
-\textbf{\underline{Register Screen}}
-\newline
-\includegraphics[scale = 0.27]{document/Register.PNG}
-\label{fig:WebsiteImages}\newline
+\begin{flushleft}
+\textbf{\underline{Register Screen:}}
+\end{flushleft}
+
+\includegraphics[scale = 0.25]{document/Register.PNG}
+\label{fig:WebsiteImages}
+
+\begin{flushleft}
 \section{Features}
-\textbf{\underline{Features Included}} \newline
-\textbullet{ Ability to Create a user and upload Profile picture to database}\newline
-\textbullet{ Ability to Login using facial Recognition and username}\newline
-\textbullet{ Once logged in the user will be displayed with a welcome message}\newline
-\newpage
+The main aim of the features implemented in this project is to provide security by using facial recognition to be able to access the inner system. Whether this software will be used for a personal use or within a company environment.
+\newline
+
+\textbullet{ The first feature is the register page which needs the user needs to submit their name and a clear frontal picture of themselves. These details are then saved to the database.}
+
+\textbullet{ The main feature is the login. The user needs to enter a valid name that has been registered otherwise an error will pop up. If the name is valid the user is then brought to the verification page, where they need to take a photo of themselves. If the photo matches the image the users registered image they are let through into the site.}
+
 \section{Limitations and Bugs}
 As with any programming project we encountered a plethora of bugs and limitations whilst working on this project. The most frustrating one of all was in the initial stages of the project. We had chosen to work with the \textbf{Flask} framework and had a problem with taking an image on the web page using javascript, encoding the image and sending it to our database via Ajax. This problem that we had set us back for a while until we ultimately decided to swap framework to \textbf{Django}. 
 
@@ -132,6 +140,6 @@ The making of this project proved to be no easy task.Through making this project
 \textbf{Sentdex}
 \newline
 \underline{\url{https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ}}
-
+\end{flushleft}
 \end{flushleft}
 \end{document}
