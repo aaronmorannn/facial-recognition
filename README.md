@@ -35,9 +35,10 @@ The requirements needed for this project are as follows :
 Then you are required to install the following python module (Make sure you are using the latest version of pip):
 
 ```
-
+pip3 install django
+pip3 install opencv-python
+pip3 install Pillow
 pip3 install face_recognition
-
 ```
   
 
@@ -54,51 +55,45 @@ Currently the packages for face_recognition are not fully supported on Windows, 
 1. Navigate to directory
 
 	```
-
 	$ cd \facial-recognition\facialrecognition
-
 	```
   
 
 2. Make migrations of the required models and tables needed to run the program.
-
 	```
-
 	$ python manage.py makemigrations
-
 	```
   
 
 3. Perform Migrations.
 
 	```
-
 	$ python manage.py migrate
-
 	```
 
 
 4. Create a super user to access administrator controls and dashboard.
 
 	```
-
 	$ python manage.py createsuperuser
-
 	```
   
 
 5. Run the program.
 
 	```
-
 	$ python manage.py runserver
-
 	```
 
 6. Make sure to navigate in your browser to 'http://localhost:8000/' to view the application.
   
 
-7. To access the admin type the following into the browser while the server is running - 'http://localhost:8000/admin'. This page will dislay the database and allow the admin to edit user's accounts.
+7. To access the admin type the following into the browser while the server is running - 'http://localhost:8000/admin'. This page will display the database and allow the admin to edit user's accounts.
   
 
 8. Press `CTRL-C` to stop the process.
+
+## Acknowledgments:
+* [Daniel Cregg - Project Supervisor](https://github.com/danielcregg)
+* [Adam Geitgey](https://github.com/ageitgey/face_recognition)
+* [Links to articles used in the project](https://github.com/Moran98/facial-recognition/blob/master/doc's/References.txt)
