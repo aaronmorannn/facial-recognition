@@ -32,13 +32,19 @@ def login(request):
         if form.is_valid():
             userName = form.cleaned_data.get("username")
             userLoginName = userName
-           
-            return render(request, 'accounts/verifyLogin.html', context)
-          
+            post = UserProfile.objects.filter(title=userLoginName) # If the username matches a name in the database move to verify photo        
+            if post:
+                return render(request, 'accounts/verifyLogin.html', context)
+                
+            else:
+                form = LoginForm()
+                errorMessage = "Error: invalid Username please try again"   #else return error message
+                context={'form':form,'errorMessage':errorMessage,}
+                return render(request,'accounts/login.html', context)        
     else:
         form = LoginForm()
-    context['form'] = form
-    return render(request, 'accounts/login.html', context)
+        context['form'] = form
+        return render(request, 'accounts/login.html', context)
 
 # Fully working adding users and images
 def register(request):
