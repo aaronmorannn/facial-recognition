@@ -55,14 +55,19 @@ def register(request):
         if form.is_valid():
             name = form.cleaned_data.get("name")
             img = form.cleaned_data.get("images")
-            obj = UserProfile.objects.create(
+            errorname= UserProfile.objects.filter(title=name)
+            if errorname:
+                errorMessage = "Error: username already exists"   #else return error message
+                context={'form':form,'errorMessage':errorMessage,}
+                return render(request,'accounts/register.html', context)
+            else:
+                obj = UserProfile.objects.create(
                 title=name,
                 img=img
-            )
-            obj.save()
-            print(obj)
-
-            return render(request, 'accounts/home.html', context)
+                )
+                obj.save()
+                print(obj)
+                return render(request, 'accounts/home.html', context)
           
     else:
         form = RegistrationForm()
