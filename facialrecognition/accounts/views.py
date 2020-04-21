@@ -26,14 +26,15 @@ def home(request):
 
 def login(request):
     context = {}
-    global userLoginName 
+    global userLoginName
+    global users
     if request.method == "POST":
         form = LoginForm(request.POST, request.FILES)
         if form.is_valid():
             userName = form.cleaned_data.get("username")
             userLoginName = userName
-            post = UserProfile.objects.filter(title=userLoginName) # If the username matches a name in the database move to verify photo        
-            if post:
+            users = UserProfile.objects.filter(title=userLoginName) # If the username matches a name in the database move to verify photo        
+            if users:
                 return render(request, 'accounts/verifyLogin.html', context)
                 
             else:
@@ -109,7 +110,7 @@ def verifyPhoto(request):
     if takePhotoLogin() is True:
         form = LoginForm()
         context={'form':form,
-                 'userLoginName': userLoginName,
+                 'users': users,
         }
 
         return render(request, 'accounts/loggedIn.html', context)

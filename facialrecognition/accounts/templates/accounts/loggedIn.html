@@ -18,14 +18,17 @@
             
             <br>
             <div class="div1">
-              <h1 id="welcome">Logged In {{ userLoginName }}</h1>
+              <h1 id="welcome">Logged In</h1>
               <hr>
             </div>
 
             <div class="loggedin">
-                {% if user.is_authenticated %}
-                <h1>Welcome {{ userLoginName }}</h1>
-                {% endif %}
+                 {% for users in users %}
+                <h1>Welcome {{users.title}}</h1>
+                <img src="{{users.img.url}}">
+                {% endfor %}
+              
+        
             </div>
             <div class="div3">
                 <button class="button" type="submit"><a id="link" href="/logout">Log Out</a></button>
