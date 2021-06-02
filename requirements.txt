@@ -13,4 +13,4 @@ Pillow==7.0.0
 pytz==2019.3
 requests==2.23.0
 sqlparse==0.3.1
-urllib3==1.25.8
+urllib3==1.26.5
